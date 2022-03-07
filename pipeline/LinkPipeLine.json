@@ -1,0 +1,61 @@
+{
+	"name": "LinkPipeLine",
+	"properties": {
+		"activities": [
+			{
+				"name": "Execute BigBrother",
+				"type": "ExecutePipeline",
+				"dependsOn": [],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "BigBrother",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Execute WestHighway",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Execute BigBrother",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "WestHighway",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			},
+			{
+				"name": "Execute OpenGate",
+				"type": "ExecutePipeline",
+				"dependsOn": [
+					{
+						"activity": "Execute WestHighway",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"pipeline": {
+						"referenceName": "OpenGate",
+						"type": "PipelineReference"
+					},
+					"waitOnCompletion": true
+				}
+			}
+		],
+		"annotations": []
+	}
+}
