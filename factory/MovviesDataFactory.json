@@ -1,0 +1,9 @@
+{
+	"name": "MovviesDataFactory",
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "7b5b13e2-daa6-48db-841e-ebf6a1805a20",
+		"tenantId": "c52023da-af69-4493-a601-36b0b97d0c3a"
+	}
+}
